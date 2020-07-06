@@ -28,7 +28,7 @@ class Box {
 
         
         this.visibility=this.visibility-5
-        tint(200,this.visibility)
+        tint(255,this.visibility)
         rect(pos.x,pos.y,this.width,this.height)
         World.remove(world,this.body)
 

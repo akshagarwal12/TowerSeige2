@@ -5,32 +5,31 @@ class Box {
           'friction':1.0,
           'density':0.5
       }
-      this.body = Bodies.rectangle(x, y, width, height, options);
+      this.box = Bodies.rectangle(x, y, width, height, options);
       this.width = width;
       this.height = height;
       this.visibility=255
+      this.image= loadImage("red.jpg")
       
-      World.add(world, this.body);
+      World.add(world, this.box);
     }
     display(){
-      var pos =this.body.position;
-      var angle =this.body.angle
-      if(this.body.speed<4){
-      push()
-      translate(pos.x,pos.y)
+      var pos =this.box.position;
+      var angle= this.box.angle
+      if(this.box.speed<4){
+
       rotate(angle)
-      rectMode(CENTER);
+      imageMode(CENTER);
       fill(255);
-      rect(0,0, this.width, this.height);
-      pop();
+      image(this.image,pos.x,pos.y, this.width, this.height);
+
       }
       else{
-
-        
         this.visibility=this.visibility-5
         tint(255,this.visibility)
-        rect(pos.x,pos.y,this.width,this.height)
-        World.remove(world,this.body)
+        image(this.image,pos.x,pos.y,this.width,this.height)
+        World.remove(world,this.box)
+
 
       }
     }
